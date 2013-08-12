@@ -13,11 +13,13 @@ public class PersonTest
 {
 
 	private Person person;
+	private Dog dog;
 
 	@Before
 	public void setUp()
 	{
-		person = new Person("monster");
+		dog = new Dog();
+		person = new Person("monster", dog);
 	}
 
 	@Test

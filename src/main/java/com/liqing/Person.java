@@ -12,7 +12,12 @@ public class Person
 	public Person(final String name)
 	{
 		this.name = name;
-		dog = new Dog();
+	}
+
+	public Person(final String name, Dog dog)
+	{
+		this.name = name;
+		this.dog = dog;
 	}
 
 	public String getName()

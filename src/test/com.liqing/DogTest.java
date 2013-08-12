@@ -23,7 +23,7 @@ public class DogTest
 	@Test
 	public void shouldReturnVoiceWhenBark()
 	{
-		assertThat(dog.bark(""), is("wang wang"));
+		assertThat(dog.bark(""), is("wang wang "));
 	}
 
 	@Test
