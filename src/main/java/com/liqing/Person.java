@@ -7,14 +7,21 @@ public class Person
 {
 
 	private String name;
+	private Dog dog;
 
 	public Person(final String name)
 	{
 		this.name = name;
+		dog = new Dog();
 	}
 
 	public String getName()
 	{
 		return name;
+	}
+
+	public String playDog()
+	{
+		return dog.bark(name);
 	}
 }

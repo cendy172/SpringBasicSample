@@ -23,7 +23,12 @@ public class PersonTest
 	@Test
 	public void shouldReturnName()
 	{
-		String name = person.getName();
-		assertThat(name, is("monster"));
+		assertThat(person.getName(), is("monster"));
+	}
+
+	@Test
+	public void shouldReturnVoiceWhenPlayDog()
+	{
+		assertThat(person.playDog(), is("wang wang monster"));
 	}
 }
