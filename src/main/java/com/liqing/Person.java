@@ -1,10 +1,12 @@
 package com.liqing;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 /**
  * User: LiQing Date: 8/12/13 Time: 10:15 PM
  */
+@Component
 public class Person
 {
     @Value("${person.name}")
