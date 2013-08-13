@@ -30,6 +30,5 @@ public class DogTest
 	public void shouldReturnVoiceWithNameWhenBark()
 	{
 		assertThat(dog.bark("monster"), is("wang wang monster"));
-
 	}
 }

@@ -9,8 +9,8 @@
 
     <bean id="dog" class="com.liqing.Dog"/>
     <bean id="person" class="com.liqing.Person">
-        <property name="name" value="monster"/>
-        <property name="dog" ref="dog"/>
+        <constructor-arg name="name" value="monster"/>
+        <constructor-arg name="dog" ref="dog"/>
     </bean>
 
 </beans>

@@ -14,6 +14,12 @@ public class Person
 		this.dog = null;
 	}
 
+	public Person(String name, Dog dog)
+	{
+		this.name = name;
+		this.dog = dog;
+	}
+
 	public void setDog(Dog dog)
 	{
 		this.dog = dog;

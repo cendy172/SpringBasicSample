@@ -3,7 +3,6 @@ package com.liqing;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
@@ -15,24 +14,48 @@ public class PersonTest
 {
 	private Person person;
 	private Dog dog;
+	private final String DOG_ID = "dog";
+	private final String PERSON_ID = "person";
 
-	@Before
-	public void setUp()
+	@Test
+	public void shouldReturnNameWhenInjectByType0()
 	{
-		ApplicationContext applicationContext = new FileSystemXmlApplicationContext(
-				"/src/main/webapp/WEB-INF/applicationContext.xml");
-		dog = (Dog) applicationContext.getBean("dog");
-		person = (Person) applicationContext.getBean("person");
+		dog = new Dog();
+		person = new Person("monster", dog);
+		shouldReturnName();
+		shouldReturnVoiceWhenPlayDog();
 	}
 
 	@Test
-	public void shouldReturnName()
+	public void shouldReturnVoiceWhenInjectByType2()
+	{
+		String beansConfig = "/src/main/webapp/WEB-INF/applicationContext.xml";
+		injectBySpring(beansConfig, DOG_ID, PERSON_ID);
+		shouldReturnName();
+		shouldReturnVoiceWhenPlayDog();
+	}
+
+	@Test
+	public void shouldReturnVoiceWhenInjectByType3()
+	{
+		injectBySpring("/src/main/webapp/WEB-INF/applicationContextType3.xml", DOG_ID, PERSON_ID);
+		shouldReturnName();
+		shouldReturnVoiceWhenPlayDog();
+	}
+
+	private void injectBySpring(String beansConfig, String DOG_ID, String PERSON_ID)
+	{
+		ApplicationContext applicationContext = new FileSystemXmlApplicationContext(beansConfig);
+		dog = (Dog) applicationContext.getBean(DOG_ID);
+		person = (Person) applicationContext.getBean(PERSON_ID);
+	}
+
+	private void shouldReturnName()
 	{
 		assertThat(person.getName(), is("monster"));
 	}
 
-	@Test
-	public void shouldReturnVoiceWhenPlayDog()
+	private void shouldReturnVoiceWhenPlayDog()
 	{
 		assertThat(person.playDog(), is("wang wang monster"));
 	}
