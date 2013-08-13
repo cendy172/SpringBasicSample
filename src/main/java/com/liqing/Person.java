@@ -5,19 +5,23 @@ package com.liqing;
  */
 public class Person
 {
-
 	private String name;
 	private Dog dog;
 
-	public Person(final String name)
+	public Person()
 	{
-		this.name = name;
+		this.name = "";
+		this.dog = null;
 	}
 
-	public Person(final String name, Dog dog)
+	public void setDog(Dog dog)
+	{
+		this.dog = dog;
+	}
+
+	public void setName(final String name)
 	{
 		this.name = name;
-		this.dog = dog;
 	}
 
 	public String getName()
