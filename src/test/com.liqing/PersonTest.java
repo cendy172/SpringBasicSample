@@ -4,15 +4,23 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  * User: LiQing Date: 8/12/13 Time: 10:15 PM
  */
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = {"classpath:person-bean.xml"})
 public class PersonTest
 {
+    @Autowired
 	private Person person;
+    @Autowired
 	private Dog dog;
 	private final String DOG_ID = "dog";
 	private final String PERSON_ID = "person";
