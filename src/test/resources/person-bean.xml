@@ -7,8 +7,9 @@
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <import resource="dog-bean.xml"/>
+    <context:property-placeholder location="person.properties"/>
     <bean id="person" class="com.liqing.Person">
-        <property name="name" value="monster"/>
+        <!--<property name="name" value="${person.name}"/>-->
         <property name="dog" ref="dog"/>
     </bean>
 

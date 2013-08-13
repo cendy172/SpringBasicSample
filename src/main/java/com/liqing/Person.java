@@ -1,10 +1,13 @@
 package com.liqing;
 
+import org.springframework.beans.factory.annotation.Value;
+
 /**
  * User: LiQing Date: 8/12/13 Time: 10:15 PM
  */
 public class Person
 {
+    @Value("${person.name}")
 	private String name;
 	private Dog dog;
 

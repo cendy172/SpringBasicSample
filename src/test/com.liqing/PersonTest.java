@@ -15,15 +15,22 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * User: LiQing Date: 8/12/13 Time: 10:15 PM
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:person-bean.xml"})
+@ContextConfiguration(locations =
+{ "classpath:person-bean.xml" })
 public class PersonTest
 {
     @Autowired
 	private Person person;
     @Autowired
 	private Dog dog;
-	private final String DOG_ID = "dog";
+    private final String DOG_ID = "dog";
 	private final String PERSON_ID = "person";
+
+    @Test
+    public void shouldReturnVoiceWhenUseSpringRunner() {
+        shouldReturnName();
+        shouldReturnVoiceWhenPlayDog();
+    }
 
 	@Test
 	public void shouldReturnNameWhenInjectByType0()
@@ -58,7 +65,7 @@ public class PersonTest
 		person = (Person) applicationContext.getBean(PERSON_ID);
 	}
 
-	private void shouldReturnName()
+    private void shouldReturnName()
 	{
 		assertThat(person.getName(), is("monster"));
 	}
