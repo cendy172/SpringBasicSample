@@ -19,18 +19,19 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 { "classpath:person-bean.xml" })
 public class PersonTest
 {
-    @Autowired
+	@Autowired
 	private Person person;
-    @Autowired
+	@Autowired
 	private Dog dog;
-    private final String DOG_ID = "dog";
+	private final String DOG_ID = "dog";
 	private final String PERSON_ID = "person";
 
-    @Test
-    public void shouldReturnVoiceWhenUseSpringRunner() {
-        shouldReturnName();
-        shouldReturnVoiceWhenPlayDog();
-    }
+	@Test
+	public void shouldReturnVoiceWhenUseSpringRunner()
+	{
+		shouldReturnName();
+		shouldReturnVoiceWhenPlayDog();
+	}
 
 	@Test
 	public void shouldReturnNameWhenInjectByType0()
@@ -65,7 +66,7 @@ public class PersonTest
 		person = (Person) applicationContext.getBean(PERSON_ID);
 	}
 
-    private void shouldReturnName()
+	private void shouldReturnName()
 	{
 		assertThat(person.getName(), is("monster"));
 	}
